@@ -12,18 +12,14 @@ import { LandingComponent } from "./landing/landing.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  @ViewChild ('test') test !: ElementRef
+  // @ViewChild ('test') test !: ElementRef
   title = 'movies-app';
   result : any;
   constructor(private DataServices : DataServicesService , ele : ElementRef){}
-  observer = {
-    next : (value : any)=> console.log(value) ,
-    error : (error : any)=> console.error(error) ,
-    complete : ()=> console.log('Observer complete')
-  }
+
 
   ngOnInit(): void {
-    this.result = this.DataServices.getMovies().subscribe(this.observer);
+    // this.result = this.DataServices.getMovies().subscribe(this.observer);
   }
-  
+
 }

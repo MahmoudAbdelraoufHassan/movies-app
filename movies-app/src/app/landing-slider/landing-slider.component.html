@@ -1,0 +1,34 @@
+<div class="slider">
+  <div class="slider_container">
+    <swiper-container centered-slides="true"  autoplay="true"  mousewheel="true" sensitivity="1" autoplay-delay="3000" cssmode="true" slides-per-view="auto" class="swiper">
+      @for (item of result; track $index) {
+        <swiper-slide class="swiper-slide" [attr.data-item]="convertData(item)">
+          <div class="slider_item">
+            <img [src]="image + item.poster_path"  alt="">
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+</div>
+<!-- <div class="main">
+  <div class="container-main">
+    <div class="hero_text">
+      <h1>Welcome to Our Website</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tristique ante. Donec vel neque a arcu semper sagittis.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+    <div class="hero_slider">
+      <swiper-container autoplay-delay="5000"  centered-slides="true"  autoplay-disable-on-interaction="false" space-between="10"  cssmode="true"  class="swiper"  slides-per-view="auto"  >
+        @for (item of result; track $index) {
+                    <swiper-slide class="swiper-slide" style="width: fit-content;">
+            <div class="slider_item">
+              <img [src]="image + result[$index].poster_path" alt="" srcset="">
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+  </div>
+</div> -->

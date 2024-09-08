@@ -1,13 +1,131 @@
-<div class="main">
-  <div class="container">
-    <h1>Swiper Elements</h1>
-    <swiper-container class="swiper"  >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
+<div class="main" [style]="{'background' : 'url(' + image + backdrop + ')'}">
+  <div class="container-sm">
+      <div class="hero_text">
+      <h1>{{title}}</h1>
+      <p>{{overview}}</p>
+      <div class="swiper_btns">
+        <a href="#" class="swiper_btn">Watch Trailer</a>
+        <a href="#" class="swiper_btn"> <i class='bx bx-play'></i> Watch Now</a>
+      </div>
+    </div>
+  </div>
+  <app-landing-slider class="swiper"></app-landing-slider>
+</div>
+<section>
+<div class="container">
+  <div class="component">
+    <h2>Trending movies</h2>
+    <a href="#" class="component_btn">view all</a>
+  </div>
+  <div class="section_slider">
+    <swiper-container   cssmode="true" slides-per-view="5" mousewheel="true">
+      @for (movie of popularMovies; track $index) {
+        <swiper-slide>
+          <div class="slider_item">
+          <div class="rating">
+            <i class='bx bxs-star'></i>
+            <span>{{movie.vote_average | number:'1.1-1'}}</span>
+          </div>
+          <img [src]="image + movie.poster_path" alt="" srcset="">
+          <div class="overlay">
+            <img src="imgs/play-button.png" alt="">
+            <div class="slider_data">
+              <h3 class="title">{{movie.title}}</h3>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    }
     </swiper-container>
+  </div>
 </div>
+</section>
 
-<div class="buttons" #swiper></div>
+<section>
+<div class="container">
+  <div class="component">
+    <h2>Top rated movies</h2>
+    <a href="#" class="component_btn">view all</a>
+  </div>
+  <div class="section_slider">
+    <swiper-container   cssmode="true" slides-per-view="5" mousewheel="true">
+      @for (movie of ratedMovies; track $index) {
+        <swiper-slide>
+          <div class="slider_item">
+          <div class="rating">
+            <i class='bx bxs-star'></i>
+            <span>{{movie.vote_average | number:'1.1-1'}}</span>
+          </div>
+          <img [src]="image + movie.poster_path" alt="" srcset="">
+          <div class="overlay">
+            <img src="imgs/play-button.png" alt="">
+            <div class="slider_data">
+              <h3 class="title">{{movie.title}}</h3>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    }
+    </swiper-container>
+  </div>
 </div>
+</section>
+<section>
+<div class="container">
+  <div class="component">
+    <h2>Trending series </h2>
+    <a href="#" class="component_btn">view all</a>
+  </div>
+  <div class="section_slider">
+    <swiper-container   cssmode="true" slides-per-view="5" mousewheel="true">
+      @for (movie of popularTvSeries; track $index) {
+        <swiper-slide>
+          <div class="slider_item">
+          <div class="rating">
+            <i class='bx bxs-star'></i>
+            <span>{{movie.vote_average | number:'1.1-1'}}</span>
+          </div>
+          <img [src]="image + movie.poster_path" alt="" srcset="">
+          <div class="overlay">
+            <img src="imgs/play-button.png" alt="">
+            <div class="slider_data">
+              <h3 class="title">{{movie.original_name}}</h3>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    }
+    </swiper-container>
+  </div>
+</div>
+</section>
+<section>
+<div class="container">
+  <div class="component">
+    <h2>Top rated series</h2>
+    <a href="#" class="component_btn">view all</a>
+  </div>
+  <div class="section_slider">
+    <swiper-container   cssmode="true" slides-per-view="5" mousewheel="true">
+      @for (movie of ratedTvSeries; track $index) {
+        <swiper-slide>
+          <div class="slider_item">
+          <div class="rating">
+            <i class='bx bxs-star'></i>
+            <span>{{movie.vote_average | number:'1.1-1'}}</span>
+          </div>
+          <img [src]="image + movie.poster_path" alt="" srcset="">
+          <div class="overlay">
+            <img src="imgs/play-button.png" alt="">
+            <div class="slider_data">
+              <h3 class="title">{{movie.original_name}}</h3>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    }
+    </swiper-container>
+  </div>
+</div>
+</section>
+
