@@ -1,38 +1,44 @@
-<header class="header">
-  <div class="nav container-lg">
+<header class="header"  [ngClass]="{'scroll': isScrolled}">
+  <div class="nav container">
     <div class="nav_logo">
       <a href="">Imovies</a>
     </div>
       <div class="nav_menu">
         <ul class="nav_list">
           <li class="nav_item">
-            <a href="" class="nav_link">
-              <div class="nav_icon">
-                <i class='bx bx-home-alt-2' ></i>
-              </div>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav_link">
               <span>Home</span></a>
           </li>
           <li class="nav_item">
-            <a href="#" class="nav_link">
-              <div class="nav_icon">
-                <i class='bx bx-movie'></i>
-              </div>
+            <a  routerLink="Movies" routerLinkActive="active" class="nav_link">
               <span>Movies</span>
             </a>
           </li>
           <li class="nav_item">
-            <a href="#" class="nav_link">
-              <div class="nav_icon">
-                <i class='bx bx-tv' ></i>
-                </div>
+            <a  routerLink="Tv" routerLinkActive="active" class="nav_link">
             <span>Tv Series</span>
             </a>
           </li>
         </ul>
       </div>
-      <div class="btn">
-        <i class='bx bx-moon' ></i>
-        <i class='bx bx-sun' ></i>
+      <div class="btns">
+        <div class="selected" (click)="dropdown()">
+          <i [class]='value' ></i>
+        </div>
+        <div class="btns_dropDown" [ngClass]="{'visable': isVisable}">
+            <button class="dropdown_btn  btn" (click)="getTheme('dark')">
+              <i class='bx bx-moon' ></i>
+              <span>dark</span>
+            </button>
+            <button class="dropdown_btn btn" (click)="getTheme('light')">
+              <i class='bx bx-sun'  ></i>
+              <span>light</span>
+            </button>
+            <button class="dropdown_btn btn" (click)="getTheme('system')" >
+              <i class='bx bx-desktop'></i>
+              <span>System</span>
+            </button>
+        </div>
       </div>
   </div>
 </header>

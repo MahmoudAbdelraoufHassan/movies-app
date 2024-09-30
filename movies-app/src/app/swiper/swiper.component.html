@@ -1,0 +1,13 @@
+<div class="section_slider">
+        <swiper-container class="sw-container"   cssmode="true" slides-per-view="auto" space-between="20">
+          @for (movie of swiperData; track $index;let d = $count) {
+            <swiper-slide class="swiper-slide">
+              <app-poster [type]="type" [arr]="arr" [movie]="movie" [Index]="$index"></app-poster>
+        </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+
+
+
+

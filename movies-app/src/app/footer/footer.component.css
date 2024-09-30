@@ -1,0 +1,37 @@
+.footer {
+  padding: 3rem 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url('../../../public/imgs/footer-background.jpg');
+  position: relative;
+  min-height: 300px;
+}
+.footer::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.735);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.footer .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.footer_list ul {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.footer_list ul li a {
+  color: white;
+  text-align: center;
+  display: block;
+  transition: 0.3s;
+}
+.footer_list ul li a:hover {
+text-decoration: underline;
+}

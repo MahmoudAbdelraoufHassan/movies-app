@@ -1,0 +1,18 @@
+<div class="posters">
+  @for(movie of Data; track $index){
+    <app-poster [type]="type" [movie]="movie" [Index]="$index" ></app-poster>
+  }
+
+  @empty {
+    <div class="loading">
+      @defer (on timer(2s)) {
+        <div class="details">
+          <h3>"{{keyword}}" Not Found</h3>
+      </div>
+    }
+    @placeholder{
+      <div class="loader"></div>
+    }
+  </div>
+  }
+</div>

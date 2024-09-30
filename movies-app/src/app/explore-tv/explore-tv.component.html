@@ -1,0 +1,17 @@
+<header>
+  <div class="title">
+    <h2>Tv Series</h2>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <app-search-filter (data)="getData($event )"></app-search-filter>
+    <app-posters-list [type]="type" [Data]="tv" [keyword]="keyword"></app-posters-list>
+    @if(page < totalPages){
+      <div class="show">
+        <button class="show_btn" (click)="loadMore()">Show More</button>
+      </div>
+    }
+  </div>
+</section>
+

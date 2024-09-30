@@ -1,0 +1,13 @@
+<div class="slider_item skeleton" [ngClass]="{'loaded': arr[Index]}" #box>
+  <div class="rating">
+  <i class='bx bxs-star'></i>
+<span>{{movie.vote_average | number:'1.1-1'}}</span>
+</div>
+<img [src]="image + movie.poster_path" #img loading="lazy" (load)="loaded(Index , box , img)">
+<div class="overlay" (click)="redirectMovie(movie.id)">
+<img src="imgs/play-button.png" alt="">
+<div class="slider_data">
+  <h3 class="title">{{movie.original_title || movie.original_name}}</h3>
+</div>
+</div>
+</div>

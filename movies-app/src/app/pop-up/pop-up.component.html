@@ -1,0 +1,10 @@
+@if(active){
+  <div  class="section" [ngClass]="{'overlay': active}">
+    <div class="video_frame">
+      <div class="frame_icon" (click)="hidePopup()" >
+        <i class='bx bx-x'></i>
+      </div>
+    <iframe class="iframe" [src]="key" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div>
+  }

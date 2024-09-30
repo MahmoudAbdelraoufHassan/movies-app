@@ -4,17 +4,64 @@
   padding: 0 ;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
+}
+html , body {
+  scroll-behavior: smooth;
 }
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;
   color: black;
 }
-/* .container {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-} */
+button {
+  outline: none !important;
+  border: none;
+}
+.container {
+  padding: 0;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: white;
+  --navbar-color : white;
+  --text-color : black;
+  --first-color : white;
+  --second-color : #f1eeee;
+  --section-title : #111827;
+  --btn-color : red;
+  --btn-background : white;
+  --box-color : hsl(203, 43%, 89%);
+  --box-shadow :  rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --skeleton-first-color :  hsl(203, 43%, 89%);
+  --skeleton-second-color :hsl(200, 20%, 95%);
+}
+body.dark-theme {
+  background-color: #111827;
+  --navbar-color : transparent;
+  --text-color : white;
+  --first-color : #111827;
+  --section-title : white ;
+  --second-color : #1F2937;
+  --box-color : #374151;
+  --btn-color : white;
+  --btn-background : linear-gradient(144deg,#ff7040, #f34b42 50%,#f3c68b);
+  --box-shadow: none;
+  --skeleton-first-color :#1F2937;
+  --skeleton-second-color:#374151;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-thumb{
+  width: 100%;
+  background-color: red;
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-track {
+  background-color: var(--first-color);
+}

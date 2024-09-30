@@ -1,0 +1,25 @@
+.search_box {
+  background-color: var(--second-color);
+  width: fit-content;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.search_box i {
+  color: red;
+  font-size: 20px;
+  padding-top: 5px;
+}
+.search_box .input {
+width: 300px;
+}
+.search_box input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  caret-color: red;
+  color: var(--text-color);
+  width: 100%;
+}

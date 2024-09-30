@@ -1,0 +1,133 @@
+<section class="details_wraper">
+  <div class="backdrop_wrapper">
+    <img [src]="backdropImage + res?.backdrop_path" alt="" srcset="">
+  </div>
+  <div class="backdrop_shadow"></div>
+  <div class="content_wrapper">
+    <div class="container">
+      <div class="content">
+        <div class="content_poster">
+          <img [src]="image + res?.poster_path" alt="">
+          <div class="rating">
+            <i class='bx bxs-star'></i>
+          <span>{{res?.vote_average | number:'1.1-1'}}</span>
+        </div>
+        </div>
+        <div class="content_details">
+          <h2 class="title">{{res?.original_title || res?.original_name}}</h2>
+          <p class="tagline">{{res?.tagline}}</p>
+          <div class="genre">
+            <ul class="genres_list">
+              @for(item of res?.genres;track $index){
+                <li class="genre_item">{{item.name}}</li>
+              }
+            </ul>
+          </div>
+          <div class="overview">
+            <h3>Overview</h3>
+            <p>{{res?.overview}}</p>
+          </div>
+          <div class="content_info">
+            <div class="info">
+              <div class="info_item">
+                <span class="text fw-bold ">Status : </span>
+                <span class="text-secondary ">{{res?.status}}</span>
+              </div>
+              @if(res?.release_date){
+                <div class="info_item">
+                  <span class="text fw-bold ">Release Date : </span>
+                  <span class="text-secondary ">{{res?.release_date | date : 'longDate'}}</span>
+                </div>
+              }@else {
+                <div class="info_item">
+                  <span class="text fw-bold ">First Air : </span>
+                  <span class="text-secondary ">{{res?.first_air_date | date : 'longDate'}}</span>
+                </div>
+              }
+              @if(res?.runtime){
+                <div class="info_item">
+                  <span class="text fw-bold ">Runtime : </span>
+                  <span class="text-secondary ">{{convertTime(res?.runtime)}}</span>
+                </div>
+              }
+              @else {
+                <div class="info_item">
+                  <span class="text fw-bold "> Episodes : </span>
+                  <span class="text-secondary ">{{res?.number_of_episodes}}</span>
+                </div>
+              }
+            </div>
+            <div class="info">
+              <div class="info_item">
+                  <span class="text fw-bold ">Director : </span>
+                  <span class="text-secondary ">{{director?.name}}</span>
+                </div>
+              </div>
+                <div class="info">
+                  <div class="info_item">
+                    <span class="text fw-bold ">Writers : </span>
+                    @for(writer of writers ; track $index){
+                      <span class="text-secondary ">{{writer}}</span>
+                      @if($index < writers.length - 1){
+                        <span> , </span>
+                      }
+                    }
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="Cast_section">
+  <div class="container">
+    <h2 >Top Cast</h2>
+    <div class="cast_wrapper">
+    @for(actor of cast;track $index){
+      <div class="cast_box">
+        <div class="cast_profile">
+          @if(actor.profile_path){
+            <img [src]="image + actor.profile_path" alt="" srcset="">
+          }
+          @else {
+            <img [src]="img" alt="" srcset="">
+          }
+        </div>
+        <div class="cast_details">
+          <h3 class=" fw-bold">{{actor.name}}</h3>
+          <span class="text-secondary fw-5">{{actor.character}}</span>
+        </div>
+      </div>
+    }
+  </div>
+  </div>
+</section>
+<section class="Trailer_section">
+  <div class="container">
+    <h2 >Official Videos</h2>
+    <div class="cast_wrapper">
+    @for(video of videos;track $index){
+      <div class="video_box" (click)="getVideoKey(video.key)">
+        <div class="video_image">
+          <img [src]="getYoutubeImage(video.key)" alt="" srcset="">
+          <div class="play_icon">
+            <img src="imgs/play-button.png" alt="">
+          </div>
+        </div>
+        <div class="video_details mt-2">
+          <span class="video_title ">{{video.name}}</span>
+        </div>
+      </div>
+    }
+  </div>
+  </div>
+</section>
+<section class="similar">
+  <div class="container">
+    <h2 >Similar</h2>
+    <app-swiper [swiperData]="similar" [type]="media_type"></app-swiper>
+  </div>
+</section>
+<app-pop-up [key]="keyValue" [active]="activeOverlay" (deactivate)="changeValue($event)"></app-pop-up>
+

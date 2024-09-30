@@ -1,0 +1,47 @@
+section {
+  padding: 80px 0;
+}
+.component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component h2{
+  position: relative;
+  width: fit-content;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--section-title);
+}
+.component h2::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 70%;
+  height: 5px;
+  border-radius: 20px;
+  background-color: red;
+}
+.swiper_btns {
+  background-color: var(--second-color);
+  border-radius: 20px;
+  padding: 3px;
+  display: flex;
+}
+.swiper_btns a.btn{
+border-radius: 20px;
+transition: 0.3s;
+width: 150px;
+border: none;
+color: var(--section-title);
+}
+
+.swiper_btns a.btn.active {
+  background: var(--btn-background) ;
+box-shadow:var(--box-shadow);
+font-weight:800;
+color: var(--btn-color);
+pointer-events: none;
+}
